@@ -21,12 +21,12 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/test')
-def test():
-    return render_template('game_play.html')
+# @app.route('/test')
+# def test():
+#     return render_template('game_play.html')
 
 # Game Play Page
-@app.route('/start_game')
+@app.route('/play_game')
 def play():
     responses.clear();
     score = 0;
