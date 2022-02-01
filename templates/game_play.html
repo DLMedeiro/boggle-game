@@ -1,0 +1,57 @@
+{%extends 'base.html' %}
+
+{%block title%} Boggle Home Page{%endblock%}
+
+{%block content%} 
+<h1>Boggle Home Page</h1>
+
+
+<form onSubmit="return flase"  action = '/start_game' class = 'start_game'>
+    <button id="start_btn">New Game</button>
+</form>
+
+<div >
+    <p>Game Timer: <span id="timer"></span></p>
+</div>
+
+<table id = "gameboard">
+    {% for row in board %}
+        <tr>
+            {%for cell in row%}
+                <td>{{cell}}</td>
+            {%endfor%}
+        </tr>
+    {% endfor %}
+</table>
+
+{%with messages = get_flashed_messages(with_categories=true)%}
+    {%if messages%}
+        <div class="messages">
+            {%for category, msg in messages%}
+                <p class = {{category}}>{{msg}}</p>
+            {%endfor%}
+        </div>
+    {%endif%}
+{%endwith%}
+
+<div class="score">
+    <p>Current Score: {{score}} </p>
+</div>
+
+<div id = "player_input">
+    <form onSubmit="return flase" action = '/play_game' method = 'POST' class = 'player_response'>
+        <input type="text" placeholder='Enter your word here' name = 'word' class = 'word'>
+        <button>Submit</button>
+    </form>
+</div>
+
+
+<ol class = 'wordList'>
+    {%for answer in responses%}
+        <li>{{answer}}</li>
+    {%endfor%}
+</ol>
+
+<script src = "/static/app.js"></script>
+
+{%endblock%}
