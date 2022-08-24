@@ -1,9 +1,6 @@
 from flask import Flask, render_template, session, request, redirect, flash
 
 
-
-from flask.helpers import total_seconds
-
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'BoggleFun'
