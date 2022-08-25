@@ -22,9 +22,12 @@ __Linux:__
 
 ```flask run```
 
-Windows:
+__Windows:__
+
 ```python3 -m venv venv```
+
 or
+
 ```python3 -m pip install virtualenv venv```
 
 ```venv\Scripts\activate.bat```
